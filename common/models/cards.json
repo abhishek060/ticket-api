@@ -1,0 +1,57 @@
+{
+  "name": "cards",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [],
+  "properties": {
+    "user_id": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    },
+    "cardType": {
+      "type": "string"
+    },
+    "cardHolderName": {
+      "type": "string"
+    },
+    "month": {
+      "type": "string"
+    },
+    "year": {
+      "type": "string"
+    },
+    "cvv": {
+      "type": "string"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "added_on": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean",
+      "default": true
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

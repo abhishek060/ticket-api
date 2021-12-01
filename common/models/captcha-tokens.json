@@ -1,0 +1,42 @@
+{
+  "name": "captcha_tokens",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [],
+  "properties": {
+    "user_id": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "number"
+    },
+    "isv2": {
+      "type": "boolean"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "url": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

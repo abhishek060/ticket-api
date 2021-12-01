@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <style>
+    form.text-center.border.border-light.p-5 {
+      width: 60%;
+      margin: 0 auto;
+    }
+    .Singin {
+      background: #33b5e5;
+      color: #fff;
+      padding: 17px;
+      margin: 0px 0px 40px 0px;
+      border-radius: 3px 3px 3px 0px;
+    }
+    .Singin p {
+      margin: 0px !important;
+      padding: 0px !important;
+    }
+    .btn-info {
+      color: #fff;
+      background-color: #33b5e5;
+      border-color: #33b5e5;
+    }
+    .btn-info:hover {
+      color: #fff;
+      background-color: #129cce;
+      border-color: #129cce;
+    }
+    .btnsignin {
+      width: 150px;
+    }
+    @media only screen and (max-width:768px) {
+      form.text-center.border.border-light.p-5 {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<section>
+  <!-- Default form login -->
+  <form class="text-center border border-light p-5" id="loginForm">
+
+    <div class="Singin"><p class="h4 mb-4">Sign in</p></div>
+
+    <!-- Email -->
+    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Username or E-mail" name="email" required>
+
+    <!-- Password -->
+    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password" required>
+
+    <!-- Sign in button -->
+    <button class="btn btn-info my-4 btnsignin" type="submit">Sign in</button>
+
+  </form>
+  <!-- Default form login -->
+</section>
+
+
+</body>
+
+<script>
+  $("#loginForm").submit(function(e) {
+    e.preventDefault();
+    console.log("hreer")
+    var form = $(this);
+    $.ajax({
+      type: "POST",
+      url: "/api/users/login",
+      data: form.serialize(),
+      success: function(data)
+      {
+        console.log("here", data);
+      },
+      failed: function () {
+        console.log("failed")
+      }
+    });
+  });
+</script>
+
+</html>

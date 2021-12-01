@@ -1,0 +1,57 @@
+{
+  "name": "captcha_data",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [],
+  "properties": {
+    "app_id": {
+      "type": "string"
+    },
+    "ua": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "v2": {
+      "type": {
+        "page_url": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "captcha_key": {
+          "type": "string"
+        }
+      }
+    },
+    "v3": {
+      "type": {
+        "page_url": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string"
+        },
+        "captcha_key": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

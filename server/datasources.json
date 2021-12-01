@@ -1,0 +1,13 @@
+{
+  "db": {
+    "host": "tas-330id.mongodb.net",
+    "port": 27017,
+    "url": "mongodb+srv://tas-330id.mongodb.net/swipabot?retryWrites=true&w=majority",
+    "database": "swipabot",
+    "password": "trident123",
+    "name": "db",
+    "user": "trident",
+    "useNewUrlParser": true,
+    "connector": "mongodb"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "name": "proxy",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [],
+  "properties": {
+    "user_id": {
+      "type": "string"
+    },
+    "group_id": {
+      "type": "string",
+      "required": true
+    },
+    "ip": {
+      "type": "string",
+      "required": true
+    },
+    "port": {
+      "type": "string",
+      "required": true
+    },
+    "user": {
+      "type": "string"
+    },
+    "pass": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "default": "Added"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "time": {
+      "type": "string"
+    },
+    "status_color": {
+      "type": "string"
+    },
+    "added_on": {
+      "type": "string"
+    },
+    "available": {
+      "type": "boolean",
+      "default": true
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+
+    "group_details": {
+      "type": "belongsTo",
+      "model": "group",
+      "foreignKey": "group_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

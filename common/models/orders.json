@@ -1,0 +1,94 @@
+{
+  "name": "orders",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "hidden": [],
+  "properties": {
+    "user_id": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "string",
+      "default":""
+    },
+    "url": {
+      "type": "string",
+      "default":""
+    },
+    "size": {
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "status_color": {
+      "type": "string"
+    },
+    "task_name": {
+      "type": "string"
+    },
+    "site_name": {
+      "type": "string"
+    },
+    "proxy_id": {
+      "type": "string"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "profile_name": {
+      "type": "string"
+    },
+    "card_id": {
+      "type": "string"
+    },
+    "log": {
+      "type": "object"
+    },
+    "cardIdentifier": {
+      "type": "string"
+    },
+    "profileIdentifier": {
+      "type": "string"
+    },
+    "proxyIdentifier": {
+      "type": "string"
+    },
+    "added_on": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "proxy": {
+      "type": "belongsTo",
+      "model": "proxy",
+      "foreignKey": "proxy_id"
+    },
+    "profile": {
+      "type": "belongsTo",
+      "model": "profiles",
+      "foreignKey": "profile_id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

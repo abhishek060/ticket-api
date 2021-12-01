@@ -1,0 +1,94 @@
+{
+  "name": "user",
+  "base": "User",
+  "options": {
+    "caseSensitiveEmail": true
+  },
+  "hidden": [
+    "password",
+    "verificationToken",
+    "username",
+    "realm",
+    "emailVerified"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "monitor_delay": {
+      "type": "number"
+    },
+    "error_delay": {
+      "type": "number"
+    },
+    "credits": {
+      "type": "number"
+    },
+    "discord_webhook": {
+      "type": "string"
+    },
+    "added_on": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find",
+      "model": "user"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "loginUser"
+    }, {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "loginUserExternal"
+    }, {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "loginAdmin"
+    }
+  ],
+  "methods": {}
+}
